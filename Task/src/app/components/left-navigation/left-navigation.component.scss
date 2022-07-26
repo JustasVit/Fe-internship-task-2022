@@ -1,9 +1,7 @@
-$lightBlue: #73a4ee;
-$darkBlue: #19487a;
-$grey: #8c8787;
+@import "src/variables";
 
 .left-navigation {
-  background: #eae8e8;
+  background: $lightGrey;
   text-align: left;
 
   ul{
