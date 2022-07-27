@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LeftNavigationComponent } from './components/left-navigation/left-navigation.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavigationComponent,
-    LeftNavigationComponent
+    LeftNavigationComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

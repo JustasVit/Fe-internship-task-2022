@@ -1,8 +1,8 @@
 @import "src/variables";
 
-.logo{
+.logo {
   height: auto;
-  width:auto;
+  width: auto;
   max-height: 50px;
   max-width: 50px;
   cursor: pointer;
@@ -16,32 +16,31 @@
   background-color: $lightBlue;
 }
 
-.container{
-  margin:0;
+.container {
+  margin: 0;
   width: 20%;
   display: flex;
   align-items: center;
 
-  .searchField{
+  .searchField {
     margin-left: 5%;
-
   }
 }
 
-.top-navigation{
+.top-navigation {
   list-style: none;
 
-  li{
+  li {
     display: inline-block;
     padding: 0px 20px;
 
-    .top-navigation-icon{
+    .top-navigation-icon {
       color: white;
       font-size: 24px;
       transition: all 0.3s ease 0s;
     }
 
-    .top-navigation-icon:hover{
+    .top-navigation-icon:hover {
       color: $grey;
     }
   }
@@ -54,5 +53,7 @@
 }
 
 @media screen and (min-width: 200px) and (max-width: 1024px) {
-  .searchField { display: none; }
+  .searchField {
+    display: none;
+  }
 }
