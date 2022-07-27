@@ -1,2 +1,26 @@
 <div class="content shadow">
+  <div class="user-container">
+    <img class="userPhoto shadow" src="assets/images/user.png" />
+    <button class="btn btn-warning details">Edit</button>
+  </div>
+  <div class="user-details-container">
+    <h5>User details</h5>
+    <hr>
+    <ul>
+      <li>Name: {{loggedInUser.name}}</li>
+      <li>Surname: {{loggedInUser.surname}}</li>
+      <li>Gender: {{loggedInUser.gender}}</li>
+      <li>Date of birth: {{dateString}}</li>
+      <li>Country: {{loggedInUser.country}}</li>
+      <li>City: {{loggedInUser.city}}</li>
+      <li>Hobbies: {{loggedInUser.hobbies}}</li>
+    </ul>
+    <h5>Gallery</h5>
+    <hr>
+    <div class="photo-grid-container">
+      <img src="assets/images/image.jpg" class="photo shadow">
+      <img src="assets/images/image.jpg" class="photo shadow">
+      <img src="assets/images/image.jpg" class="photo shadow">
+    </div>
+  </div>
 </div>

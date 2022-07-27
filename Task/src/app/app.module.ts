@@ -7,13 +7,15 @@ import { TopNavigationComponent } from './components/top-navigation/top-navigati
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LeftNavigationComponent } from './components/left-navigation/left-navigation.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavigationComponent,
     LeftNavigationComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
