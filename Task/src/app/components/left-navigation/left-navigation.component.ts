@@ -7,15 +7,12 @@ import {faTv, faStore, faUsersLine} from "@fortawesome/free-solid-svg-icons";
   templateUrl: './left-navigation.component.html',
   styleUrls: ['./left-navigation.component.scss']
 })
-export class LeftNavigationComponent implements OnInit {
+export class LeftNavigationComponent {
 
   faTv = faTv;
   faStore = faStore;
   faUsersLine = faUsersLine;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

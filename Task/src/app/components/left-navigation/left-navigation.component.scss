@@ -1,7 +1,7 @@
 @import "src/variables";
 
 .left-navigation {
-  background: $lightGrey;
+  background: $lightGrey ;
   text-align: left;
 
   ul{
@@ -12,11 +12,11 @@
       font-family: Arial;
       font-size: 18px;
 
-      fa-icon{
+      .left-navigation-icon{
         font-size:24px;
         transition: all 0.3s ease 0s;
       }
-      fa-icon:hover{
+      .left-navigation-icon:hover{
         color: $darkBlue;
       }
     }

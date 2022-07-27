@@ -6,7 +6,7 @@ import {faTv, faHouse, faStore, faUsersLine, faUser} from "@fortawesome/free-sol
   templateUrl: './top-navigation.component.html',
   styleUrls: ['./top-navigation.component.scss']
 })
-export class TopNavigationComponent implements OnInit {
+export class TopNavigationComponent {
 
   faHouse = faHouse;
   faTv = faTv;
@@ -15,8 +15,5 @@ export class TopNavigationComponent implements OnInit {
   faUser = faUser;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

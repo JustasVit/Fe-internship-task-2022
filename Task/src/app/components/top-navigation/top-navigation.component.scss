@@ -8,7 +8,7 @@
   cursor: pointer;
 }
 
-header {
+.navigation-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,19 +35,19 @@ header {
     display: inline-block;
     padding: 0px 20px;
 
-    fa-icon{
+    .top-navigation-icon{
       color: white;
       font-size: 24px;
       transition: all 0.3s ease 0s;
     }
 
-    fa-icon:hover{
+    .top-navigation-icon:hover{
       color: $grey;
     }
   }
 }
 
-#userIcon {
+.userIcon {
   color: $darkBlue;
   font-size: 36px;
   margin-right: 1%;
