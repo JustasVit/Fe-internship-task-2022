@@ -1,0 +1,28 @@
+@import "src/variables";
+
+.left-navigation {
+  background: $lightGrey ;
+  text-align: left;
+
+  ul{
+    list-style: none;
+    li{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-family: Arial;
+      font-size: 18px;
+
+      .left-navigation-icon{
+        font-size:24px;
+        transition: all 0.3s ease 0s;
+      }
+      .left-navigation-icon:hover{
+        color: $darkBlue;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 1024px) {
+  .left-navigation { display: none; }
+}

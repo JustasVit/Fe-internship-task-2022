@@ -1,0 +1,58 @@
+@import "src/variables";
+
+.logo{
+  height: auto;
+  width:auto;
+  max-height: 50px;
+  max-width: 50px;
+  cursor: pointer;
+}
+
+.navigation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: $lightBlue;
+}
+
+.container{
+  margin:0;
+  width: 20%;
+  display: flex;
+  align-items: center;
+
+  .searchField{
+    margin-left: 5%;
+
+  }
+}
+
+.top-navigation{
+  list-style: none;
+
+  li{
+    display: inline-block;
+    padding: 0px 20px;
+
+    .top-navigation-icon{
+      color: white;
+      font-size: 24px;
+      transition: all 0.3s ease 0s;
+    }
+
+    .top-navigation-icon:hover{
+      color: $grey;
+    }
+  }
+}
+
+.userIcon {
+  color: $darkBlue;
+  font-size: 36px;
+  margin-right: 1%;
+}
+
+@media screen and (min-width: 200px) and (max-width: 1024px) {
+  .searchField { display: none; }
+}
