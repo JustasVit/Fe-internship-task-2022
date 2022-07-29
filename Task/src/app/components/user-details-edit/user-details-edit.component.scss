@@ -1,0 +1,25 @@
+@import "src/variables";
+
+.content {
+  margin: 1% 30%;
+  padding: 20px;
+  height: 90%;
+  background-color: $lightGrey;
+
+  input[type="text"],
+  input[type="date"] {
+    display: block;
+    margin: 5px 0;
+  }
+  .form-check {
+    input[type="radio"] + label {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .submit-button {
+    margin-top: 10px;
+    text-align: center;
+  }
+}

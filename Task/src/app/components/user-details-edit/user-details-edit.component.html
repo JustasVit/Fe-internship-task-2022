@@ -1,0 +1,44 @@
+<div class="content shadow">
+  <form [formGroup]="form">
+    <label for="name">Name:</label>
+    <input class="form-control" type="text" id="name" formControlName="name">
+
+    <label for="surname">Surname:</label>
+    <input class="form-control" type="text" id="surname" formControlName="surname">
+
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="gender" id="male" value="male" formControlName="gender">
+      <label class="form-check-label" for="male">Male</label>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="gender" id="female" value="female" formControlName="gender">
+      <label class="form-check-label" for="female">Female</label>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="gender" id="other" value="other" formControlName="gender">
+      <label class="form-check-label" for="other">Other</label>
+    </div><br>
+
+    <label for="birthday">Date of birth:</label>
+    <input class="form-control" type="date" id="birthday" formControlName="dateOfBirth">
+
+    <label for="country">Country:</label>
+    <select class="form-control" id="country" formControlName="country">
+      <option *ngFor="let country of countries" value="{{country.name}}">{{country.name}}</option>
+    </select>
+
+    <label for="city">City:</label>
+    <select class="form-control" id="city" formControlName="city">
+      <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
+    </select>
+
+    <label for="hobbies">Hobbies</label>
+    <textarea class="form-control" id="hobbies" rows="3" formControlName="hobbies"></textarea>
+
+    <div class="submit-button">
+    <button class="btn btn-success" [disabled]="!form.valid" (click)="submit()">Save</button>
+    </div>
+  </form>
+</div>
