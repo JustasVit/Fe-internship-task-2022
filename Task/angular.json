@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "fe-internship-task-2022": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "lt": "src/locale/messages.lt.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": ["lt"],
             "outputPath": "dist/fe-internship-task-2022",
             "index": "src/index.html",
             "main": "src/main.ts",

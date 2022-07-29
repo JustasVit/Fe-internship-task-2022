@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import {faTv, faHouse, faStore, faUsersLine, faUser} from "@fortawesome/free-solid-svg-icons";
 
 @Component({

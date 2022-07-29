@@ -1,22 +1,23 @@
 @import "src/variables";
 
 .left-navigation {
-  background: $lightGrey ;
+  height: 100%;
+  padding-top: 10px;
   text-align: left;
+  background: $lightGrey;
 
-  ul{
+  ul {
     list-style: none;
-    li{
-      margin-top: 10px;
+    li {
       margin-bottom: 10px;
       font-family: Arial;
       font-size: 18px;
 
-      .left-navigation-icon{
-        font-size:24px;
+      .left-navigation-icon {
+        font-size: 24px;
         transition: all 0.3s ease 0s;
       }
-      .left-navigation-icon:hover{
+      .left-navigation-icon:hover {
         color: $darkBlue;
       }
     }
@@ -24,5 +25,8 @@
 }
 
 @media screen and (min-width: 200px) and (max-width: 1024px) {
-  .left-navigation { display: none; }
+  .left-navigation {
+    display: none;
+  }
 }
+
