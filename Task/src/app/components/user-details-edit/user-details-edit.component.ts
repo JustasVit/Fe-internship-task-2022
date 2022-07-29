@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {Country} from "../../models/Country";
 import {CountriesService} from "../../services/countries.service";
 import {City} from "../../models/City";
+import {createDateValidator} from "../../validators/date.validator";
 
 @Component({
   selector: 'app-user-details-edit',
@@ -31,7 +32,7 @@ export class UserDetailsEditComponent implements OnInit {
       }], gender: ['', {
         validators: [Validators.required], updateOn: 'blur'
       }], dateOfBirth: ['', {
-        validators: [Validators.required], updateOn: 'blur'
+        validators: [Validators.required, createDateValidator()], updateOn: 'blur'
       }], country: ['', {
         validators: [Validators.required], updateOn: 'blur'
       }], city: ['', {
