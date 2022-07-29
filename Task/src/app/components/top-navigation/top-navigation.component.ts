@@ -14,6 +14,4 @@ export class TopNavigationComponent {
   faUsersLine = faUsersLine;
   faUser = faUser;
 
-  constructor() { }
-
 }

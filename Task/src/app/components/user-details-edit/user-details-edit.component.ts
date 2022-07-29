@@ -20,7 +20,11 @@ export class UserDetailsEditComponent implements OnInit {
   cities: City[] | undefined;
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private usersService: UsersService, private countriesService: CountriesService, private router: Router) {
+  constructor(private formBuilder: FormBuilder,
+              private usersService: UsersService,
+              private countriesService: CountriesService,
+              private router: Router) {
+
     this.form = this.formBuilder.group({
       name: ['',
         {validators: [Validators.required,
