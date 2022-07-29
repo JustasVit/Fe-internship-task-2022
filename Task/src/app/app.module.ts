@@ -12,6 +12,7 @@ import { UserDetailsEditComponent } from './components/user-details-edit/user-de
 import {ReactiveFormsModule} from "@angular/forms";
 import {UsersService} from "./services/users.service";
 import {CountriesService} from "./services/countries.service";
+import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {CountriesService} from "./services/countries.service";
     LeftNavigationComponent,
     UserDetailsComponent,
     LayoutComponent,
-    UserDetailsEditComponent
+    UserDetailsEditComponent,
+    OnlyOneErrorPipe
   ],
   imports: [
     BrowserModule,

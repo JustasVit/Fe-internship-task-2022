@@ -20,26 +20,33 @@ export class UserDetailsEditComponent implements OnInit {
   cities: City[] | undefined;
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-              private usersService: UsersService,
-              private countriesService: CountriesService,
-              private router: Router) {
+  constructor(private formBuilder: FormBuilder, private usersService: UsersService, private countriesService: CountriesService, private router: Router) {
     this.form = this.formBuilder.group({
-      name: ['', {
-        validators: [Validators.required], updateOn: 'blur'
-      }], surname: ['', {
-        validators: [Validators.required], updateOn: 'blur'
-      }], gender: ['', {
-        validators: [Validators.required], updateOn: 'blur'
-      }], dateOfBirth: ['', {
-        validators: [Validators.required, createDateValidator()], updateOn: 'blur'
-      }], country: ['', {
-        validators: [Validators.required], updateOn: 'blur'
-      }], city: ['', {
-        validators: [Validators.required], updateOn: 'blur'
-      }], hobbies: ['', {
-        validators: [Validators.required], updateOn: 'blur'
-      }]
+      name: ['',
+        {validators: [Validators.required,
+            Validators.maxLength(20),
+            Validators.pattern("[A-Z][a-z]+")],
+          updateOn: 'blur'}],
+      surname: ['',
+          {validators: [Validators.required,
+              Validators.maxLength(20),
+              Validators.pattern("[A-Z][a-z]+")],
+            updateOn: 'blur'}],
+      gender: ['',
+          {validators: [Validators.required],
+            updateOn: 'blur'}],
+      dateOfBirth: ['',
+          {validators: [Validators.required,
+              createDateValidator()],
+            updateOn: 'blur'}],
+      country: ['',
+          {validators: [Validators.required],
+            updateOn: 'blur'}],
+      city: ['',
+          {validators: [Validators.required],
+            updateOn: 'blur'}],
+      hobbies: ['',
+          {updateOn: 'blur'}]
     })
   }
 
