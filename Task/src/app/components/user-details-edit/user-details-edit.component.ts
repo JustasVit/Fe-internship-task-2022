@@ -20,43 +20,31 @@ export class UserDetailsEditComponent implements OnInit {
   cities: City[] | undefined;
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-              private usersService: UsersService,
-              private countriesService: CountriesService,
-              private router: Router) {
+  constructor(private formBuilder: FormBuilder, private usersService: UsersService, private countriesService: CountriesService, private router: Router) {
 
     this.form = this.formBuilder.group({
-      name: ['',
-        {validators: [Validators.required,
-            Validators.maxLength(20),
-            Validators.pattern("[A-Z][a-z]+")],
-          updateOn: 'blur'}],
-      surname: ['',
-          {validators: [Validators.required,
-              Validators.maxLength(20),
-              Validators.pattern("[A-Z][a-z]+")],
-            updateOn: 'blur'}],
-      gender: ['',
-          {validators: [Validators.required],
-            updateOn: 'blur'}],
-      dateOfBirth: ['',
-          {validators: [Validators.required,
-              createDateValidator()],
-            updateOn: 'blur'}],
-      country: ['',
-          {validators: [Validators.required],
-            updateOn: 'blur'}],
-      city: ['',
-          {validators: [Validators.required],
-            updateOn: 'blur'}],
-      hobbies: ['',
-          {updateOn: 'blur'}]
+      name: ['', {
+        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")], updateOn: 'blur'
+      }], surname: ['', {
+        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")], updateOn: 'blur'
+      }], gender: ['', {
+        validators: [Validators.required], updateOn: 'blur'
+      }], dateOfBirth: ['', {
+        validators: [Validators.required, createDateValidator()], updateOn: 'blur'
+      }], country: ['', {
+        validators: [Validators.required], updateOn: 'blur'
+      }], city: [{value: '', disabled: true}, {
+        validators: [Validators.required], updateOn: 'blur'
+      }], hobbies: ['', {updateOn: 'blur'}]
     })
   }
 
   ngOnInit(): void {
     this.loggedInUser = this.usersService.getLoggedInUser();
     this.countries = this.countriesService.getCountries();
+
+    const countryControl = this.form.controls["country"];
+    const cityControl = this.form.controls["city"];
 
     this.form.valueChanges.subscribe(values => {
       this.loggedInUser.name = values.name;
@@ -67,8 +55,12 @@ export class UserDetailsEditComponent implements OnInit {
       this.loggedInUser.city = values.city;
       this.loggedInUser.hobbies = values.hobbies;
 
-      this.cities = this.countriesService.getCities(this.loggedInUser.country);
-
+      if (countryControl.valid) {
+        cityControl.enable({emitEvent: false})
+        this.cities = this.countriesService.getCities(this.loggedInUser.country);
+      } else {
+        cityControl.disable({emitEvent: false})
+      }
     })
   }
 

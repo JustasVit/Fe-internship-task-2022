@@ -57,5 +57,6 @@
     <div class="submit-button">
     <button class="btn btn-success" [disabled]="!form.valid" (click)="submit()">Save</button>
     </div>
+    {{form.value | json}}
   </form>
 </div>
