@@ -6,16 +6,37 @@
   height: 90%;
   background-color: $lightGrey;
 
-  input[type="text"],
-  input[type="date"] {
-    display: block;
-    margin: 5px 0;
-  }
+  input {
+    &[type="text"], &[type="date"] {
+      display: block;
+      margin: 5px 0;
+    }
 
-  .form-check {
-    input[type="radio"] + label {
+    &[type="radio"] + label {
       margin-right: 10px;
       cursor: pointer;
+    }
+
+    &.ng-touched {
+      &.ng-valid {
+        border: 3px solid $green;
+      }
+
+      &.ng-invalid {
+        border: 3px solid $red;
+      }
+    }
+  }
+
+  select {
+    &.ng-touched {
+      &.ng-valid {
+        border: 3px solid $green;
+      }
+
+      &.ng-invalid {
+        border: 3px solid $red;
+      }
     }
   }
 
@@ -25,14 +46,6 @@
     .btn {
       margin: 10px;
     }
-  }
-
-  input.ng-invalid.ng-touched {
-    border: 3px solid $red;
-  }
-
-  input.ng-valid.ng-touched, select.ng-valid.ng-touched {
-    border: 3px solid $green;
   }
 
   .error {
