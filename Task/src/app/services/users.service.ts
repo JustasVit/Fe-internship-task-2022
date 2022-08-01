@@ -1,6 +1,6 @@
 import {User} from "../models/User";
 
-export class UsersService{
+export class UsersService {
   loggedInUser: User = {
     name: "Justas",
     surname: "Vitkauskas",
@@ -11,11 +11,11 @@ export class UsersService{
     hobbies: "-"
   }
 
-  updateUser(user:User){
+  updateUser(user: User) {
     this.loggedInUser = user;
   }
 
-  getLoggedInUser(){
-    return this.loggedInUser;
+  getLoggedInUser() {
+    return Object.assign({}, this.loggedInUser);
   }
 }
