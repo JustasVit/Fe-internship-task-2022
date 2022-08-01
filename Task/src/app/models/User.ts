@@ -1,9 +1,9 @@
 export interface User {
-  name: String;
-  surname: String;
-  gender: String;
+  name: string;
+  surname: string;
+  gender: string;
   dateOfBirth: Date;
-  country: String;
-  city: String;
-  hobbies: String;
+  country: string;
+  city: string;
+  hobbies: string;
 }

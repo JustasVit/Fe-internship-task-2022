@@ -1,6 +1,6 @@
 import {City} from "./City";
 
 export interface Country{
-  name: String;
+  name: string;
   cities: City[];
 }

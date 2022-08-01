@@ -12,7 +12,7 @@ export class CountriesService{
     return this.countries;
   }
 
-  getCities(countryName: String){
+  getCities(countryName: string){
     let countryFound = this.countries.find(country => country.name == countryName)
     return countryFound?.cities;
   }
