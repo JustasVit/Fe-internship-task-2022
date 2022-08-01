@@ -8,6 +8,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LeftNavigationComponent } from './components/left-navigation/left-navigation.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { UserDetailsEditComponent } from './components/user-details-edit/user-details-edit.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {UsersService} from "./services/users.service";
+import {CountriesService} from "./services/countries.service";
+import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
 
 @NgModule({
   declarations: [
@@ -15,14 +20,17 @@ import { LayoutComponent } from './components/layout/layout.component';
     TopNavigationComponent,
     LeftNavigationComponent,
     UserDetailsComponent,
-    LayoutComponent
+    LayoutComponent,
+    UserDetailsEditComponent,
+    OnlyOneErrorPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UsersService, CountriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

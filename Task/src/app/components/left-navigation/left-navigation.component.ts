@@ -13,6 +13,4 @@ export class LeftNavigationComponent {
   faStore = faStore;
   faUsersLine = faUsersLine;
 
-  constructor() { }
-
 }
