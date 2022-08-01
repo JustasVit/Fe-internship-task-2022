@@ -61,7 +61,7 @@ export class UserDetailsEditComponent implements OnInit {
       name: this.loggedInUser.name,
       surname: this.loggedInUser.surname,
       gender: this.loggedInUser.gender,
-      dateOfBirth: this.loggedInUser.dateOfBirth,
+      dateOfBirth: this.loggedInUser.dateOfBirth.toISOString().split('T')[0],
       country: this.loggedInUser.country,
       city: this.loggedInUser.city,
       hobbies: this.loggedInUser.hobbies
@@ -71,7 +71,7 @@ export class UserDetailsEditComponent implements OnInit {
       this.loggedInUser.name = values.name;
       this.loggedInUser.surname = values.surname;
       this.loggedInUser.gender = values.gender;
-      this.loggedInUser.dateOfBirth = values.dateOfBirth;
+      this.loggedInUser.dateOfBirth = new Date(values.dateOfBirth);
       this.loggedInUser.country = values.country;
       this.loggedInUser.city = values.city;
       this.loggedInUser.hobbies = values.hobbies;
