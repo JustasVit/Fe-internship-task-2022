@@ -1,9 +1,9 @@
 <div class="user-container shadow">
   <div class="image">
-    <img class="photo shadow" src="assets/images/user.png">
+    <img class="photo shadow" [src]="imageLink">
   </div>
   <div class="user-details">
-    <span class="username"> Justas Vitkauskas </span>
-    <span class="online-dot"></span>
+    <span class="username">{{user.name}} {{user.surname}}</span>
+    <span [ngClass]="{'online-dot': user.isOnline, 'offline-dot': !user.isOnline}"></span>
   </div>
 </div>

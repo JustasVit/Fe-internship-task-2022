@@ -13,7 +13,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {UsersService} from "./services/users.service";
 import {CountriesService} from "./services/countries.service";
 import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
-import { UsersListComponent } from './users-list/users-list.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 import {UserComponent} from "./components/user/user.component";
 
 @NgModule({

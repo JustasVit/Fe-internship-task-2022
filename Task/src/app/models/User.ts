@@ -1,4 +1,5 @@
 export interface User {
+  id: number;
   name: string;
   surname: string;
   gender: string;
@@ -6,4 +7,5 @@ export interface User {
   country: string;
   city: string;
   hobbies: string;
+  isOnline: boolean;
 }
