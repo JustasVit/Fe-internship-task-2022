@@ -1,3 +1,13 @@
-<div *ngFor="let user of users">
-  <app-user [user] = user></app-user>
-</div>
+<ng-container *ngFor="let user of users | paginate: {
+itemsPerPage: items,
+currentPage: page,
+totalItems: users?.length }">
+  <app-user [user]=user></app-user>
+</ng-container>
+
+<pagination-controls
+  class="pagination"
+  (pageChange)="handlePageChange($event)"
+  previousLabel="Prev"
+  nextLabel="Next">
+</pagination-controls>

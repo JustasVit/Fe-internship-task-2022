@@ -15,6 +15,7 @@ import {CountriesService} from "./services/countries.service";
 import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
 import { UsersListComponent } from './components/users-list/users-list.component';
 import {UserComponent} from "./components/user/user.component";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {UserComponent} from "./components/user/user.component";
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [UsersService, CountriesService],
   bootstrap: [AppComponent]
