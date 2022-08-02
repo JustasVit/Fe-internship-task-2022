@@ -43,11 +43,15 @@ export class UsersService {
     this.loggedInUser = user;
   }
 
-  getLoggedInUser() {
+  getLoggedInUser(): User {
     return Object.assign({}, this.loggedInUser);
   }
 
-  getUsers() {
+  getUsers(): User[] {
    return this.users;
+  }
+
+  getUserById(id: number): User | undefined {
+    return this.users.find((user) => user.id == id)
   }
 }
