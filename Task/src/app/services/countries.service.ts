@@ -1,19 +1,19 @@
 import {Country} from "../models/Country";
 
-export class CountriesService{
+export class CountriesService {
 
-  countries : Country[] = [
-    {name:'Lithuania',cities:[{name:'Vilnius'}]},
-    {name:'Latvia',cities:[{name:'Riga'}]},
-    {name:'Estonia',cities:[{name:'Tallinn'}]}
+  countries: Country[] = [
+    {name: 'Lithuania', cities: [{name: 'Vilnius'}]},
+    {name: 'Latvia', cities: [{name: 'Riga'}]},
+    {name: 'Estonia', cities: [{name: 'Tallinn'}]}
   ]
 
-  getCountries(){
+  getCountries() {
     return this.countries;
   }
 
-  getCities(countryName: string){
-    let countryFound = this.countries.find(country => country.name == countryName)
+  getCities(countryName: string) {
+    const countryFound = this.countries.find(country => country.name === countryName)
     return countryFound?.cities;
   }
 }

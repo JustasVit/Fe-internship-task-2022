@@ -1,15 +1,31 @@
 <header class="navigation-header">
-  <div class="container">
-  <img class="logo" src="/assets/images/logo.jpg" alt="Facebook logo" routerLink="/">
-  <input type="text" class="searchField form-control" placeholder="Search..">
+  <div class="navigation-left">
+    <img alt="Facebook logo" class="logo" routerLink="/" src="/assets/images/logo.jpg">
+    <input class="searchField form-control" placeholder="Search.." type="text">
   </div>
-  <nav>
-    <ul class="top-navigation">
-      <li><fa-icon class="top-navigation-icon" [icon]="faHouse"></fa-icon></li>
-      <li><fa-icon class="top-navigation-icon" [icon]="faTv"></fa-icon></li>
-      <li><fa-icon class="top-navigation-icon" [icon]="faStore"></fa-icon></li>
-      <li><fa-icon class="top-navigation-icon" [icon]="faUsersLine"></fa-icon></li>
-    </ul>
-  </nav>
-  <a routerLink="/details"><fa-icon class="userIcon" [icon]="faUser"></fa-icon></a>
+  <ul class="navigation-center">
+    <li>
+      <a>
+        <fa-icon [icon]="faHouse" class="top-navigation-icon"></fa-icon>
+      </a>
+    </li>
+    <li>
+      <a>
+        <fa-icon [icon]="faTv" class="top-navigation-icon"></fa-icon>
+      </a>
+    </li>
+    <li>
+      <a>
+        <fa-icon [icon]="faStore" class="top-navigation-icon"></fa-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/list">
+        <fa-icon [icon]="faUsersLine" class="top-navigation-icon"></fa-icon>
+      </a>
+    </li>
+  </ul>
+  <a routerLink="/details/{{loggedInUserId}}">
+    <fa-icon [icon]="faUser" class="userIcon"></fa-icon>
+  </a>
 </header>

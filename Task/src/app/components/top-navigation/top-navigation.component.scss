@@ -16,7 +16,7 @@
   background-color: $lightBlue;
 }
 
-.container {
+.navigation-left {
   margin: 0;
   width: 20%;
   display: flex;
@@ -27,9 +27,8 @@
   }
 }
 
-.top-navigation {
-  list-style: none;
-  padding: 0;
+.navigation-center {
+  margin-top: 10px;
 
   li {
     display: inline-block;
@@ -39,10 +38,10 @@
       color: white;
       font-size: 24px;
       transition: all 0.3s ease 0s;
-    }
 
-    .top-navigation-icon:hover {
-      color: $grey;
+      &:hover {
+        color: $grey;
+      }
     }
   }
 }

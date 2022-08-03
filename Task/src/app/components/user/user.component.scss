@@ -1,0 +1,48 @@
+.user-container{
+  display: grid;
+  grid-template-columns: 10% 90%;
+  border: 1px solid black;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top:10px;
+  margin-bottom: 10px;
+
+  .photo{
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+  }
+
+  .username{
+    font-weight: bold;
+  }
+
+  .image{
+    margin:0;
+  }
+
+  .user-details{
+    margin-left:10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .offline-dot {
+    height: 15px;
+    width: 15px;
+    background-color: #ab2121;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .online-dot {
+    height: 15px;
+    width: 15px;
+    background-color: #2b943c;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+  }
+}

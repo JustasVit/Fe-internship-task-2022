@@ -13,6 +13,12 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {UsersService} from "./services/users.service";
 import {CountriesService} from "./services/countries.service";
 import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
+import { UsersListComponent } from './components/users-list/users-list.component';
+import {UserComponent} from "./components/user/user.component";
+import {NgxPaginationModule} from "ngx-pagination";
+import {UserDetailsGuard} from "./guards/user-details.guard";
+import {AuthService} from "./services/auth.service";
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +28,24 @@ import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
     UserDetailsComponent,
     LayoutComponent,
     UserDetailsEditComponent,
-    OnlyOneErrorPipe
+    OnlyOneErrorPipe,
+    UserComponent,
+    UsersListComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
   ],
-  providers: [UsersService, CountriesService],
+  providers: [
+    UsersService,
+    CountriesService,
+    AuthService,
+    UserDetailsGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

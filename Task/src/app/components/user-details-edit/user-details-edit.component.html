@@ -1,7 +1,7 @@
 <div class="content shadow">
   <form [formGroup]="form">
     <label for="name">Name:</label>
-    <input class="form-control" type="text" id="name" formControlName="name">
+    <input class="form-control" formControlName="name" id="name" type="text">
     <ng-container *ngIf="form.get('name')?.errors | onlyOneError:['required','pattern','maxlength'] as error">
       <div *ngIf="error?.required && form.get('name')?.touched" class="error">Name is mandatory!</div>
       <div *ngIf="error?.maxlength" class="error">Name is too long (over 20 characters)!</div>
@@ -9,7 +9,7 @@
     </ng-container>
 
     <label for="surname">Surname:</label>
-    <input class="form-control" type="text" id="surname" formControlName="surname">
+    <input class="form-control" formControlName="surname" id="surname" type="text">
     <ng-container *ngIf="form.get('surname')?.errors | onlyOneError:['required','pattern','maxlength'] as error">
       <div *ngIf="error?.required && form.get('surname')?.touched" class="error">Surname is mandatory!</div>
       <div *ngIf="error?.maxlength" class="error">Surname is too long (over 20 characters)!</div>
@@ -17,17 +17,17 @@
     </ng-container>
 
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="gender" id="male" value="Male" formControlName="gender">
+      <input class="form-check-input" formControlName="gender" id="male" name="gender" type="radio" value="Male">
       <label class="form-check-label" for="male">Male</label>
     </div>
 
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="gender" id="female" value="Female" formControlName="gender">
+      <input class="form-check-input" formControlName="gender" id="female" name="gender" type="radio" value="Female">
       <label class="form-check-label" for="female">Female</label>
     </div>
 
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="gender" id="other" value="Other" formControlName="gender">
+      <input class="form-check-input" formControlName="gender" id="other" name="gender" type="radio" value="Other">
       <label class="form-check-label" for="other">Other</label>
     </div>
     <br>
@@ -37,14 +37,14 @@
 
 
     <label for="birthday">Date of birth:</label>
-    <input class="form-control" type="date" id="birthday" formControlName="dateOfBirth">
+    <input class="form-control" formControlName="dateOfBirth" id="birthday" type="date">
     <ng-container *ngIf="form.get('dateOfBirth')?.errors | onlyOneError:['required','dateValidity'] as error">
       <div *ngIf="error?.required && form.get('dateOfBirth')?.touched" class="error">Date of birth is mandatory!</div>
       <div *ngIf="error?.dateValidity" class="error">You must be at least 18 years old!</div>
     </ng-container>
 
     <label for="country">Country:</label>
-    <select class="form-control" id="country" formControlName="country">
+    <select class="form-control" formControlName="country" id="country">
       <option *ngFor="let country of countries" value="{{country.name}}">{{country.name}}</option>
     </select>
     <div *ngIf="form.get('country')?.hasError('required') && form.get('country')?.touched" class="error">Country is
@@ -53,7 +53,7 @@
 
 
     <label for="city">City:</label>
-    <select class="form-control" id="city" formControlName="city">
+    <select class="form-control" formControlName="city" id="city">
       <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
     </select>
     <div *ngIf="form.get('city')?.hasError('required') && form.get('city')?.touched" class="error">City is mandatory!
@@ -61,15 +61,15 @@
 
 
     <label for="hobbies">Hobbies</label>
-    <textarea class="form-control" id="hobbies" rows="3" formControlName="hobbies"></textarea>
+    <textarea class="form-control" formControlName="hobbies" id="hobbies" rows="3"></textarea>
 
     <div class="buttons">
-      <button class="btn btn-success" [disabled]="!form.valid" (click)="openPopup()">Save</button>
+      <button (click)="openPopup()" [disabled]="!form.valid" class="btn btn-success">Save</button>
     </div>
   </form>
 
-  <div class="backdrop" [ngStyle]="{'display': displayStyle}">
-    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div [ngStyle]="{'display': displayStyle}" class="backdrop">
+    <div [ngStyle]="{'display':displayStyle}" class="modal" role="dialog" tabindex="-1">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -77,8 +77,8 @@
           </div>
           <div class="modal-body">
             <div class="buttons">
-              <button class="btn btn-success" [disabled]="!form.valid" (click)="submit()">Save</button>
-              <button class="btn btn-warning" (click)="cancel()">Cancel</button>
+              <button (click)="submit()" [disabled]="!form.valid" class="btn btn-success">Save</button>
+              <button (click)="cancel()" class="btn btn-warning">Cancel</button>
             </div>
           </div>
         </div>

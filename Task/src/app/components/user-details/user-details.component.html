@@ -1,19 +1,19 @@
 <div class="content shadow">
   <div class="user-container">
     <img class="userPhoto shadow" src="assets/images/user.png" />
-    <button i18n class="btn btn-warning details" routerLink="/details/edit">Edit</button>
+    <button *ngIf="user?.id === loggedInUserId" i18n class="btn btn-warning details" routerLink="/details/{{user?.id}}/edit">Edit</button>
   </div>
   <div class="user-details-container">
     <h5 i18n>User details</h5>
     <hr>
     <ul>
-      <li i18n>Name: {{loggedInUser.name}}</li>
-      <li i18n>Surname: {{loggedInUser.surname}}</li>
-      <li i18n>Gender: {{loggedInUser.gender}}</li>
-      <li i18n>Date of birth: {{loggedInUser.dateOfBirth | date}}</li>
-      <li i18n>Country: {{loggedInUser.country}}</li>
-      <li i18n>City: {{loggedInUser.city}}</li>
-      <li i18n>Hobbies: {{loggedInUser.hobbies}}</li>
+      <li i18n>Name: {{user?.name}}</li>
+      <li i18n>Surname: {{user?.surname}}</li>
+      <li i18n>Gender: {{user?.gender}}</li>
+      <li i18n>Date of birth: {{user?.dateOfBirth | date}}</li>
+      <li i18n>Country: {{user?.country}}</li>
+      <li i18n>City: {{user?.city}}</li>
+      <li i18n>Hobbies: {{user?.hobbies}}</li>
     </ul>
     <h5 i18n>Gallery</h5>
     <hr>

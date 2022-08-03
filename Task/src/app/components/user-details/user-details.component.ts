@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../models/User";
 import {UsersService} from "../../services/users.service";
-
+import {Subscription} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-user-details',
@@ -10,11 +12,19 @@ import {UsersService} from "../../services/users.service";
 })
 export class UserDetailsComponent implements OnInit {
 
-  loggedInUser: User;
+  loggedInUserId: number | undefined;
+  user: User | undefined;
+  private routeSub: Subscription;
 
-  constructor(private usersService : UsersService) {}
+  constructor(private usersService: UsersService,
+              private authService: AuthService,
+              private route: ActivatedRoute) {
+  }
 
-  ngOnInit(){
-    this.loggedInUser = this.usersService.getLoggedInUser();
+  ngOnInit() {
+    this.routeSub = this.route.params.subscribe((params) => {
+      this.user = this.usersService.getUserById(Number(params['id']));
+      this.loggedInUserId = this.authService.getLoggedInUserId()
+    })
   }
 }
