@@ -13,7 +13,7 @@ export class UserDetailsGuard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.usersService.getUserById(next.params['id']) === undefined) {
+    if (this.usersService.getUserById(Number(next.params['id'])) === undefined) {
       this.router.navigate(['/error']);
     }
     return true;

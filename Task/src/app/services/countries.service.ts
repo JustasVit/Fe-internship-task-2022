@@ -13,7 +13,7 @@ export class CountriesService {
   }
 
   getCities(countryName: string) {
-    const countryFound = this.countries.find(country => country.name == countryName)
+    const countryFound = this.countries.find(country => country.name === countryName)
     return countryFound?.cities;
   }
 }
