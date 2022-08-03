@@ -22,41 +22,28 @@ export class UserDetailsEditComponent implements OnInit {
   form: FormGroup;
   displayStyle = "none";
 
-  constructor(private formBuilder: FormBuilder,
-              private authService: AuthService,
-              private usersService: UsersService,
-              private countriesService: CountriesService,
-              private router: Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private usersService: UsersService, private countriesService: CountriesService, private router: Router) {
 
     this.form = this.formBuilder.group({
       name: [null, {
-        validators: [Validators.required,
-          Validators.maxLength(20),
-          Validators.pattern("[A-Z][a-z]+")],
-        updateOn: 'blur'}],
-      surname: [null, {
-        validators: [Validators.required,
-          Validators.maxLength(20),
-          Validators.pattern("[A-Z][a-z]+")],
-        updateOn: 'blur'}],
-      gender: [null, {
-        validators: [Validators.required],
-        updateOn: 'blur'}],
-      dateOfBirth: [null, {
-        validators: [Validators.required, createDateValidator()], updateOn: 'blur'}],
-      country: [null, {
-        validators: [Validators.required],
-        updateOn: 'blur'}],
-      city: [null, {
-        validators: [Validators.required],
-        updateOn: 'blur'}],
-      hobbies: [null, {updateOn: 'blur'}]
+        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")], updateOn: 'blur'
+      }], surname: [null, {
+        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")], updateOn: 'blur'
+      }], gender: [null, {
+        validators: [Validators.required], updateOn: 'blur'
+      }], dateOfBirth: [null, {
+        validators: [Validators.required, createDateValidator()], updateOn: 'blur'
+      }], country: [null, {
+        validators: [Validators.required], updateOn: 'blur'
+      }], city: [null, {
+        validators: [Validators.required], updateOn: 'blur'
+      }], hobbies: [null, {updateOn: 'blur'}]
     })
   }
 
   ngOnInit(): void {
-    // @ts-ignore
-    this.loggedInUser = this.authService.getLoggedInUser();
+    const user = this.authService.getLoggedInUser();
+    user === undefined ? this.router.navigate(['/error']) : this.loggedInUser = user;
     this.countries = this.countriesService.getCountries();
     this.cities = this.countriesService.getCities(this.loggedInUser.country);
 
@@ -80,10 +67,10 @@ export class UserDetailsEditComponent implements OnInit {
       this.loggedInUser.hobbies = values.hobbies;
     })
 
-    this.form.controls['country'].valueChanges.subscribe( value => {
+    this.form.controls['country'].valueChanges.subscribe(value => {
       this.cities = this.countriesService.getCities(value);
       this.form.patchValue({
-        city:null
+        city: null
       })
     })
   }
@@ -100,5 +87,4 @@ export class UserDetailsEditComponent implements OnInit {
   openPopup() {
     this.displayStyle = "block";
   }
-
 }

@@ -1,0 +1,19 @@
+.error{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  &-heading{
+    font-weight: bold;
+    font-size: 100px;
+  }
+
+  &-text{
+    font-size: 36px;
+  }
+}
+
+
+
+

@@ -16,11 +16,12 @@ export class UserDetailsComponent implements OnInit {
   user: User | undefined;
   private routeSub: Subscription;
 
-  constructor(private usersService : UsersService,
+  constructor(private usersService: UsersService,
               private authService: AuthService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute) {
+  }
 
-  ngOnInit(){
+  ngOnInit() {
     this.routeSub = this.route.params.subscribe((params) => {
       this.user = this.usersService.getUserById(params['id']);
       this.loggedInUserId = this.authService.getLoggedInUserId()

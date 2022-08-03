@@ -1,15 +1,21 @@
 <div class="left-navigation">
   <ul>
     <li>
-      <fa-icon [icon]="faTv" class="left-navigation-icon"></fa-icon>
+      <a>
+        <fa-icon [icon]="faTv" class="left-navigation-icon"></fa-icon>
+      </a>
       Watch
     </li>
     <li>
-      <fa-icon [icon]="faStore" class="left-navigation-icon"></fa-icon>
+      <a>
+        <fa-icon [icon]="faStore" class="left-navigation-icon"></fa-icon>
+      </a>
       Marketplace
     </li>
-    <li routerLink="/list">
-      <fa-icon [icon]="faUsersLine" class="left-navigation-icon"></fa-icon>
+    <li>
+      <a routerLink="/list">
+        <fa-icon [icon]="faUsersLine" class="left-navigation-icon"></fa-icon>
+      </a>
       Groups
     </li>
   </ul>

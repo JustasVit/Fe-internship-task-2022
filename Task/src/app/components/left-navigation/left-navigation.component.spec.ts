@@ -1,6 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { LeftNavigationComponent } from './left-navigation.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {LeftNavigationComponent} from './left-navigation.component';
 
 describe('LeftNavigationComponent', () => {
   let component: LeftNavigationComponent;
@@ -8,9 +7,9 @@ describe('LeftNavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LeftNavigationComponent ]
+      declarations: [LeftNavigationComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LeftNavigationComponent);
     component = fixture.componentInstance;

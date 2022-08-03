@@ -1,7 +1,7 @@
 <div class="content shadow">
   <div class="user-container">
     <img class="userPhoto shadow" src="assets/images/user.png" />
-    <button *ngIf="user?.id == loggedInUserId" i18n class="btn btn-warning details" routerLink="/details/{{user?.id}}/edit">Edit</button>
+    <button *ngIf="user?.id === loggedInUserId" i18n class="btn btn-warning details" routerLink="/details/{{user?.id}}/edit">Edit</button>
   </div>
   <div class="user-details-container">
     <h5 i18n>User details</h5>

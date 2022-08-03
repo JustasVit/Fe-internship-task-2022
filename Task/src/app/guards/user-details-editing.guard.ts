@@ -8,17 +8,17 @@ import {AuthService} from "../services/auth.service";
 })
 export class UserDetailsEditingGuard implements CanActivate {
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router,
+              private authService: AuthService) {
+  }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let routeId = next.params['id'];
-    let loggedInUserId = this.authService.getLoggedInUserId();
+    const routeId = Number(next.params['id']);
+    const loggedInUserId = this.authService.getLoggedInUserId();
 
-    if (routeId != loggedInUserId) {
-      this.router.navigate(['/']);
-      return false;
+    if (routeId !== loggedInUserId) {
+      this.router.navigate(['/error']);
     }
-
     return true;
   }
 }

@@ -7,14 +7,15 @@ import {Injectable} from "@angular/core";
 })
 export class AuthService {
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) {
+  }
 
   getLoggedInUser(): User | undefined {
-    let loggedInUserId = Number(sessionStorage.getItem('id'));
+    const loggedInUserId = Number(sessionStorage.getItem('id'));
     return this.usersService.getUserById(loggedInUserId);
   }
 
   getLoggedInUserId(): number | undefined {
     return this.getLoggedInUser()?.id
   }
- }
+}

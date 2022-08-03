@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {faTv, faHouse, faStore, faUsersLine, faUser} from "@fortawesome/free-solid-svg-icons";
+import {faHouse, faStore, faTv, faUser, faUsersLine} from "@fortawesome/free-solid-svg-icons";
 import {AuthService} from "../../services/auth.service";
 
 @Component({
@@ -16,7 +16,8 @@ export class TopNavigationComponent implements OnInit {
   faUser = faUser;
   loggedInUserId: number | undefined;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
     this.loggedInUserId = this.authService.getLoggedInUserId();

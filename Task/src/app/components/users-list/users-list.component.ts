@@ -3,7 +3,7 @@ import {User} from "../../models/User";
 import {UsersService} from "../../services/users.service";
 
 @Component({
-  selector: 'app-users-list', templateUrl: './users-list.component.html', styleUrls: ['./users-list.component.css']
+  selector: 'app-users-list', templateUrl: './users-list.component.html', styleUrls: ['./users-list.component.scss']
 })
 export class UsersListComponent implements OnInit {
 
@@ -11,7 +11,8 @@ export class UsersListComponent implements OnInit {
   items = 5;
   page = 1;
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) {
+  }
 
   ngOnInit(): void {
     this.users = this.usersService.getUsers();

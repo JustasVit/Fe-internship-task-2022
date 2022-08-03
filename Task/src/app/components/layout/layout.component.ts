@@ -5,7 +5,7 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit{
+export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     sessionStorage.setItem("id", "2");

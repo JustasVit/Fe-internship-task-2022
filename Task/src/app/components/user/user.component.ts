@@ -6,12 +6,12 @@ import {User} from "../../models/User";
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit{
+export class UserComponent implements OnInit {
 
   @Input() user: User;
   imageLink: string;
 
-  ngOnInit(){
+  ngOnInit() {
     this.imageLink = "https://picsum.photos/200?random=" + this.user.id;
   }
 }

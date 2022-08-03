@@ -16,9 +16,9 @@ import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
 import { UsersListComponent } from './components/users-list/users-list.component';
 import {UserComponent} from "./components/user/user.component";
 import {NgxPaginationModule} from "ngx-pagination";
-import {UserDetailsEditingGuard} from "./guards/user-details-editing.guard";
 import {UserDetailsGuard} from "./guards/user-details.guard";
 import {AuthService} from "./services/auth.service";
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -30,16 +30,22 @@ import {AuthService} from "./services/auth.service";
     UserDetailsEditComponent,
     OnlyOneErrorPipe,
     UserComponent,
-    UsersListComponent
+    UsersListComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
-  providers: [UsersService, CountriesService, AuthService, UserDetailsGuard, UserDetailsEditingGuard],
+  providers: [
+    UsersService,
+    CountriesService,
+    AuthService,
+    UserDetailsGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
