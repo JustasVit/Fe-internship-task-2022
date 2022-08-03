@@ -1,12 +1,13 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../models/User";
-import {UsersService} from "../../services/users.service";
 import {Router} from "@angular/router";
 import {Country} from "../../models/Country";
 import {CountriesService} from "../../services/countries.service";
 import {City} from "../../models/City";
 import {createDateValidator} from "../../validators/date.validator";
+import {AuthService} from "../../services/auth.service";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-user-details-edit',
@@ -22,6 +23,7 @@ export class UserDetailsEditComponent implements OnInit {
   displayStyle = "none";
 
   constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
               private usersService: UsersService,
               private countriesService: CountriesService,
               private router: Router) {
@@ -53,7 +55,8 @@ export class UserDetailsEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loggedInUser = this.usersService.getLoggedInUser();
+    // @ts-ignore
+    this.loggedInUser = this.authService.getLoggedInUser();
     this.countries = this.countriesService.getCountries();
     this.cities = this.countriesService.getCities(this.loggedInUser.country);
 
@@ -86,12 +89,12 @@ export class UserDetailsEditComponent implements OnInit {
   }
 
   submit() {
-    this.usersService.updateUser(this.loggedInUser);
-    this.router.navigate(['/details']);
+    this.usersService.updateUser(this.loggedInUser, this.loggedInUser.id);
+    this.router.navigate(['/']);
   }
 
   cancel() {
-    this.router.navigate(['/details']);
+    this.router.navigate(['/']);
   }
 
   openPopup() {

@@ -1,20 +1,19 @@
 import {User} from "../models/User";
 
 export class UsersService {
-  private loggedInUser: User = {
-    id:1,
-    name: "Justas",
-    surname: "Vitkauskas",
-    dateOfBirth: new Date("2000-04-01"),
-    gender: "Male",
-    country: "Lithuania",
-    city: "Vilnius",
-    hobbies: "-",
-    isOnline: true
-  }
 
   private users: User[] = [
-    this.loggedInUser,
+    {
+      id:1,
+      name: "Justas",
+      surname: "Vitkauskas",
+      dateOfBirth: new Date("2000-04-01"),
+      gender: "Male",
+      country: "Lithuania",
+      city: "Vilnius",
+      hobbies: "-",
+      isOnline: true
+    },
     {
       id:2,
       name: "Vardenis",
@@ -39,12 +38,8 @@ export class UsersService {
     }
   ]
 
-  updateUser(user: User) {
-    this.loggedInUser = user;
-  }
-
-  getLoggedInUser(): User {
-    return Object.assign({}, this.loggedInUser);
+  updateUser(updatedUser: User, id: number) {
+    this.users = this.users.map(user => user.id == id ? updatedUser : user )
   }
 
   getUsers(): User[] {

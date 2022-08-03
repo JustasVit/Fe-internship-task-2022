@@ -14,5 +14,4 @@ export class UserComponent implements OnInit{
   ngOnInit(){
     this.imageLink = "https://picsum.photos/200?random=" + this.user.id;
   }
-
 }

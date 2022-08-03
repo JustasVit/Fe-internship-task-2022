@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {faTv, faHouse, faStore, faUsersLine, faUser} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -6,12 +6,17 @@ import {faTv, faHouse, faStore, faUsersLine, faUser} from "@fortawesome/free-sol
   templateUrl: './top-navigation.component.html',
   styleUrls: ['./top-navigation.component.scss']
 })
-export class TopNavigationComponent {
+export class TopNavigationComponent implements OnInit{
 
   faHouse = faHouse;
   faTv = faTv;
   faStore = faStore;
   faUsersLine = faUsersLine;
   faUser = faUser;
+  loggedInUserId: number;
+
+  ngOnInit() {
+    this.loggedInUserId = Number(sessionStorage.getItem('id'));
+  }
 
 }

@@ -4,11 +4,13 @@ import {UserDetailsComponent} from "./components/user-details/user-details.compo
 import {LayoutComponent} from "./components/layout/layout.component";
 import {UserDetailsEditComponent} from "./components/user-details-edit/user-details-edit.component";
 import {UsersListComponent} from "./components/users-list/users-list.component";
+import {UserDetailsEditingGuard} from "./guards/user-details-editing.guard";
+import {UserDetailsGuard} from "./guards/user-details.guard";
 
 const routes: Routes = [{
   path: '', component: LayoutComponent, children: [
-    {path: 'details/:id', component: UserDetailsComponent},
-    {path:'details/:id/edit', component: UserDetailsEditComponent},
+    {path: 'details/:id', component: UserDetailsComponent, canActivate:[UserDetailsGuard]},
+    {path:'details/:id/edit', component: UserDetailsEditComponent, canActivate:[UserDetailsEditingGuard]},
     {path:'list', component:UsersListComponent}
   ]}
 ];

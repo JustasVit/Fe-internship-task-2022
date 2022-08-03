@@ -3,7 +3,7 @@ import {User} from "../../models/User";
 import {UsersService} from "../../services/users.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
-
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-user-details',
@@ -12,21 +12,18 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class UserDetailsComponent implements OnInit {
 
-  userId: number;
+  loggedInUserId: number | undefined;
   user: User | undefined;
   private routeSub: Subscription;
 
   constructor(private usersService : UsersService,
-              private route: ActivatedRoute,
-              private router: Router) {}
+              private authService: AuthService,
+              private route: ActivatedRoute) {}
 
   ngOnInit(){
     this.routeSub = this.route.params.subscribe((params) => {
-      this.userId = params['id'];
-      this.user = this.usersService.getUserById(this.userId);
-      if(this.user == undefined){
-        this.router.navigate(['/']);
-      }
+      this.user = this.usersService.getUserById(params['id']);
+      this.loggedInUserId = this.authService.getLoggedInUserId()
     })
   }
 }
