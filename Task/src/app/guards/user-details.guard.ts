@@ -9,16 +9,13 @@ import {UsersService} from "../services/users.service";
 export class UserDetailsGuard implements CanActivate {
 
   constructor(private router: Router,
-              private usersService: UsersService) {
-  }
+              private usersService: UsersService) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
-    if(this.usersService.getUserById(next.params['id']) != undefined){
-      return true;
-    }
-    else {
+    if(this.usersService.getUserById(next.params['id']) == undefined){
       this.router.navigate(['/']);
       return false;
     }
+    return true;
   }
 }

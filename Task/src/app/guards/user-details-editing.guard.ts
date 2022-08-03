@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {AuthService} from "../services/auth.service";
 
@@ -8,19 +8,17 @@ import {AuthService} from "../services/auth.service";
 })
 export class UserDetailsEditingGuard implements CanActivate {
 
-  constructor(private router: Router,
-              private authService: AuthService) {
-  }
+  constructor(private router: Router, private authService: AuthService) {}
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let routeId = next.params['id'];
     let loggedInUserId = this.authService.getLoggedInUserId();
-    if(routeId == loggedInUserId){
-      return true;
-    }
-    else {
+
+    if (routeId != loggedInUserId) {
       this.router.navigate(['/']);
       return false;
     }
+
+    return true;
   }
 }
