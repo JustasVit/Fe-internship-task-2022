@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
@@ -27,6 +27,12 @@ export class LoginComponent {
           updateOn: 'blur'
         }]
     })
+  }
+
+  ngOnInit() {
+    if (sessionStorage.getItem('id') !== null) {
+      this.router.navigate(['/']);
+    }
   }
 
   submit() {

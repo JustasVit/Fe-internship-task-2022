@@ -8,25 +8,28 @@ import {UserDetailsGuard} from "./guards/user-details.guard";
 import {UserDetailsEditingGuard} from "./guards/user-details-editing.guard";
 import {ErrorComponent} from "./components/error/error.component";
 import {LoginComponent} from "./components/login/login.component";
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   {
     path: "",
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: "details/:id",
         component: UserDetailsComponent,
-        canActivate: [UserDetailsGuard],
+        canActivate: [UserDetailsGuard, AuthGuard],
       },
       {
         path: "details/:id/edit",
         component: UserDetailsEditComponent,
-        canActivate: [UserDetailsEditingGuard],
+        canActivate: [UserDetailsEditingGuard, AuthGuard],
       },
       {
         path: "list",
-        component: UsersListComponent
+        component: UsersListComponent,
+        canActivate: [AuthGuard],
       },
     ],
   },
