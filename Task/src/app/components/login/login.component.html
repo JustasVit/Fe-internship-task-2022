@@ -9,5 +9,8 @@
         Sign in
       </button>
     </div>
+    <div *ngIf="form.get('email')?.hasError('incorrect') || form.get('password')?.hasError('incorrect')" class="error">
+      Invalid email or password!
+    </div>
   </form>
 </div>

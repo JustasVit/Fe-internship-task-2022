@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
+import {UserRepository} from "../../repositories/user.repository";
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
+              private userRepository: UserRepository,
               private router: Router) {
     this.form = this.formBuilder.group({
       email: ['',
@@ -30,9 +32,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (sessionStorage.getItem('id') !== null) {
-      this.router.navigate(['/']);
-    }
+    this.userRepository.user$.subscribe((user) => {
+      if (user !== undefined) {
+        this.router.navigate(['/']);
+      }
+    })
   }
 
   submit() {
@@ -41,7 +45,8 @@ export class LoginComponent implements OnInit {
     if (this.authService.login(emailControl.value, passwordControl.value)) {
       this.router.navigate(['/']);
     } else {
-      alert("Bad credentials");
+      this.form.controls['email'].setErrors({'incorrect': true});
+      this.form.controls['password'].setErrors({'incorrect': true});
     }
   }
 }

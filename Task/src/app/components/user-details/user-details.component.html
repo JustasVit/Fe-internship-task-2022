@@ -1,7 +1,9 @@
 <div class="content shadow">
   <div class="user-container">
-    <img class="userPhoto shadow" src="assets/images/user.png" />
-    <button *ngIf="user?.id === loggedInUserId" i18n class="btn btn-warning details" routerLink="/details/{{user?.id}}/edit">Edit</button>
+    <img class="userPhoto shadow" src="assets/images/user.png"/>
+    <button *ngIf="user?.id === loggedInUser?.id" class="btn btn-warning details" i18n
+            routerLink="/details/{{user?.id}}/edit">Edit
+    </button>
   </div>
   <div class="user-details-container">
     <h5 i18n>User details</h5>
@@ -18,9 +20,9 @@
     <h5 i18n>Gallery</h5>
     <hr>
     <div class="photo-grid-container">
-      <img src="assets/images/image.jpg" class="photo shadow">
-      <img src="assets/images/image.jpg" class="photo shadow">
-      <img src="assets/images/image.jpg" class="photo shadow">
+      <img class="photo shadow" src="assets/images/image.jpg">
+      <img class="photo shadow" src="assets/images/image.jpg">
+      <img class="photo shadow" src="assets/images/image.jpg">
     </div>
   </div>
 </div>
