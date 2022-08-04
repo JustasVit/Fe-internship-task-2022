@@ -13,25 +13,24 @@ import {By} from "@angular/platform-browser";
 describe('UserDetailsEditComponent', () => {
   let component: UserDetailsEditComponent;
   let fixture: ComponentFixture<UserDetailsEditComponent>;
-  let userServiceStub: Partial<UsersService>;
+
+  const userServiceStub: Partial<UsersService> = {
+    getUserById(id: number): User | undefined {
+      return {
+        id: 1,
+        name: "Justas",
+        surname: "Vitkauskas",
+        dateOfBirth: new Date("2000-04-01"),
+        gender: "Male",
+        country: "Lithuania",
+        city: "Vilnius",
+        hobbies: "-",
+        isOnline: true
+      }
+    }
+  };
 
   beforeEach(async () => {
-
-    userServiceStub = {
-      getUserById(id: number): User | undefined {
-        return {
-          id: 1,
-          name: "Justas",
-          surname: "Vitkauskas",
-          dateOfBirth: new Date("2000-04-01"),
-          gender: "Male",
-          country: "Lithuania",
-          city: "Vilnius",
-          hobbies: "-",
-          isOnline: true
-        }
-      }
-    };
 
     await TestBed.configureTestingModule({
       declarations: [UserDetailsEditComponent, OnlyOneErrorPipe],
