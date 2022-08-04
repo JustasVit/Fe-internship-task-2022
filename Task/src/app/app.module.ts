@@ -9,7 +9,7 @@ import {LeftNavigationComponent} from './components/left-navigation/left-navigat
 import {UserDetailsComponent} from './components/user-details/user-details.component';
 import {LayoutComponent} from './components/layout/layout.component';
 import {UserDetailsEditComponent} from './components/user-details-edit/user-details-edit.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {UsersService} from "./services/users.service";
 import {CountriesService} from "./services/countries.service";
 import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
@@ -37,7 +37,6 @@ import {ErrorComponent} from './components/error/error.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
   ],
