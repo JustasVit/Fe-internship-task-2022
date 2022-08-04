@@ -5,7 +5,7 @@
     <label for="password">Password</label>
     <input class="form-control" formControlName="password" id="password" placeholder="Password" type="password">
     <div class="d-grid">
-      <button [disabled]="!form.valid" class="btn btn-primary" type="submit">
+      <button (click)="submit()" [disabled]="!form.valid" class="btn btn-primary" type="submit">
         Sign in
       </button>
     </div>

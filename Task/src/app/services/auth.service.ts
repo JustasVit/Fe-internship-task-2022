@@ -18,4 +18,19 @@ export class AuthService {
   getLoggedInUserId(): number | undefined {
     return this.getLoggedInUser()?.id
   }
+
+  login(email: string, password: string): boolean {
+    console.log(email)
+    const user = this.usersService.getUserByEmail(email);
+    console.log(user)
+    if (user !== undefined && user.password === password) {
+      sessionStorage.setItem('id', String(user.id));
+      return true;
+    }
+    return false;
+  }
+
+  logout() {
+
+  }
 }
