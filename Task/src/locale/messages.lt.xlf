@@ -2,84 +2,84 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="7585826646011739428" datatype="html">
-        <source>Edit</source>
+      <trans-unit id="{userDetails.button.edit}" datatype="html">
+        <source>Edit </source>
         <target>Redaguoti</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">5,6</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="208417461251028549" datatype="html">
+      <trans-unit id="{userDetails.title.userDetails}" datatype="html">
         <source>User details</source>
-        <target>Vartotojo nustatymai</target>
+        <target>Vartotojo informacija</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5722235063735091336" datatype="html">
-        <source>Name: <x id="INTERPOLATION" equiv-text="{{loggedInUser.name}}"/></source>
-        <target>Vardas: <x id="INTERPOLATION" equiv-text="{{loggedInUser.name}}"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4509351361493848597" datatype="html">
-        <source>Surname: <x id="INTERPOLATION" equiv-text="{{loggedInUser.surname}}"/></source>
-        <target>Pavardė: <x id="INTERPOLATION" equiv-text="{{loggedInUser.surname}}"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3837612823237555203" datatype="html">
-        <source>Gender: <x id="INTERPOLATION" equiv-text="{{loggedInUser.gender}}"/></source>
-        <target>Lytis: <x id="INTERPOLATION" equiv-text="{{loggedInUser.gender}}"/></target>
+      <trans-unit id="{userDetails.name}" datatype="html">
+        <source>Name: <x id="INTERPOLATION" equiv-text="{{user?.name}}"/></source>
+        <target>Vardas: <x id="INTERPOLATION" equiv-text="{{user?.name}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1302009455079741427" datatype="html">
-        <source>Date of birth: <x id="INTERPOLATION" equiv-text="{{loggedInUser.dateOfBirth | date}}"/></source>
-        <target>Gimimo data: <x id="INTERPOLATION" equiv-text="{{loggedInUser.dateOfBirth | date}}"/></target>
+      <trans-unit id="{userDetails.surname}" datatype="html">
+        <source>Surname: <x id="INTERPOLATION" equiv-text="{{user?.surname}}"/></source>
+        <target>Pavardė: <x id="INTERPOLATION" equiv-text="{{user?.surname}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8985537790514514521" datatype="html">
-        <source>Country: <x id="INTERPOLATION" equiv-text="{{loggedInUser.country}}"/></source>
-        <target>Šalis: <x id="INTERPOLATION" equiv-text="{{loggedInUser.country}}"/></target>
+      <trans-unit id="{userDetails.gender}" datatype="html">
+        <source>Gender: <x id="INTERPOLATION" equiv-text="{{user?.gender}}"/></source>
+        <target>Lytis: <x id="INTERPOLATION" equiv-text="{{user?.gender}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2452605757429852214" datatype="html">
-        <source>City: <x id="INTERPOLATION" equiv-text="{{loggedInUser.city}}"/></source>
-        <target>Miestas: <x id="INTERPOLATION" equiv-text="{{loggedInUser.city}}"/></target>
+      <trans-unit id="{userDetails.dateOfBirth}" datatype="html">
+        <source>Date of birth: <x id="INTERPOLATION" equiv-text="{{user?.dateOfBirth | date}}"/></source>
+        <target>Gimimo data: <x id="INTERPOLATION" equiv-text="{{user?.dateOfBirth | date}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="971033992890553796" datatype="html">
-        <source>Hobbies: <x id="INTERPOLATION" equiv-text="{{loggedInUser.hobbies}}"/></source>
-        <target>Pomėgiai: <x id="INTERPOLATION" equiv-text="{{loggedInUser.hobbies}}"/></target>
+      <trans-unit id="{userDetails.country}" datatype="html">
+        <source>Country: <x id="INTERPOLATION" equiv-text="{{user?.country}}"/></source>
+        <target>Šalis: <x id="INTERPOLATION" equiv-text="{{user?.country}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2181154762165715522" datatype="html">
-        <source>Gallery</source>
-        <target>Galerija</target>
+      <trans-unit id="{userDetails.city}" datatype="html">
+        <source>City: <x id="INTERPOLATION" equiv-text="{{user?.city}}"/></source>
+        <target>Miestas: <x id="INTERPOLATION" equiv-text="{{user?.city}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="{userDetails.hobbies}" datatype="html">
+        <source>Hobbies: <x id="INTERPOLATION" equiv-text="{{user?.hobbies}}"/></source>
+        <target>Pomėgiai: <x id="INTERPOLATION" equiv-text="{{user?.hobbies}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
           <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="{userDetails.title.gallery}" datatype="html">
+        <source>Gallery</source>
+        <target>Nuotraukos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/user-details/user-details.component.html</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
     </body>
