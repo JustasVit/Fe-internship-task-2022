@@ -30,18 +30,32 @@ export class UserDetailsEditComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       name: [null, {
-        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")], updateOn: 'blur'
-      }], surname: [null, {
-        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")], updateOn: 'blur'
-      }], gender: [null, {
-        validators: [Validators.required], updateOn: 'blur'
-      }], dateOfBirth: [null, {
-        validators: [Validators.required, createDateValidator()], updateOn: 'blur'
-      }], country: [null, {
-        validators: [Validators.required], updateOn: 'blur'
-      }], city: [null, {
-        validators: [Validators.required], updateOn: 'blur'
-      }], hobbies: [null, {updateOn: 'blur'}]
+        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")],
+        updateOn: 'blur'
+      }],
+      surname: [null, {
+        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")],
+        updateOn: 'blur'
+      }],
+      gender: [null, {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }],
+      dateOfBirth: [null, {
+        validators: [Validators.required, createDateValidator()],
+        updateOn: 'blur'
+      }],
+      country: [null, {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }],
+      city: [null, {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }],
+      hobbies: [null, {
+        updateOn: 'blur'
+      }]
     })
   }
 

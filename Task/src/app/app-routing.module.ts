@@ -7,6 +7,7 @@ import {UsersListComponent} from "./components/users-list/users-list.component";
 import {UserDetailsGuard} from "./guards/user-details.guard";
 import {UserDetailsEditingGuard} from "./guards/user-details-editing.guard";
 import {ErrorComponent} from "./components/error/error.component";
+import {LoginComponent} from "./components/login/login.component";
 
 const routes: Routes = [
   {
@@ -23,10 +24,20 @@ const routes: Routes = [
         component: UserDetailsEditComponent,
         canActivate: [UserDetailsEditingGuard],
       },
-      { path: "list", component: UsersListComponent },
+      {
+        path: "list",
+        component: UsersListComponent
+      },
     ],
   },
-  { path: "error", component: ErrorComponent }
+  {
+    path: "error",
+    component: ErrorComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  }
 ];
 
 @NgModule({

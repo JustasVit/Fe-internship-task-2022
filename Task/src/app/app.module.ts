@@ -1,24 +1,25 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LeftNavigationComponent } from './components/left-navigation/left-navigation.component';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { UserDetailsEditComponent } from './components/user-details-edit/user-details-edit.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {TopNavigationComponent} from './components/top-navigation/top-navigation.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {LeftNavigationComponent} from './components/left-navigation/left-navigation.component';
+import {UserDetailsComponent} from './components/user-details/user-details.component';
+import {LayoutComponent} from './components/layout/layout.component';
+import {UserDetailsEditComponent} from './components/user-details-edit/user-details-edit.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {UsersService} from "./services/users.service";
 import {CountriesService} from "./services/countries.service";
 import {OnlyOneErrorPipe} from "./pipes/only-one-error.pipe";
-import { UsersListComponent } from './components/users-list/users-list.component';
+import {UsersListComponent} from './components/users-list/users-list.component';
 import {UserComponent} from "./components/user/user.component";
 import {NgxPaginationModule} from "ngx-pagination";
 import {UserDetailsGuard} from "./guards/user-details.guard";
 import {AuthService} from "./services/auth.service";
-import { ErrorComponent } from './components/error/error.component';
+import {ErrorComponent} from './components/error/error.component';
+import {LoginComponent} from "./components/login/login.component";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ErrorComponent } from './components/error/error.component';
     UserComponent,
     UsersListComponent,
     ErrorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,4 +50,5 @@ import { ErrorComponent } from './components/error/error.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
