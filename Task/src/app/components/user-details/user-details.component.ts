@@ -23,7 +23,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe((params) => {
-      this.user = this.usersService.getUserById(params['id']);
+      this.user = this.usersService.getUserById(Number(params['id']));
       this.loggedInUserId = this.authService.getLoggedInUserId()
     })
   }

@@ -22,7 +22,11 @@ export class UserDetailsEditComponent implements OnInit {
   form: FormGroup;
   displayStyle = "none";
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private usersService: UsersService, private countriesService: CountriesService, private router: Router) {
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
+              private usersService: UsersService,
+              private countriesService: CountriesService,
+              private router: Router) {
 
     this.form = this.formBuilder.group({
       name: [null, {

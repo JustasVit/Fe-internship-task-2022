@@ -2,9 +2,9 @@ import {User} from "../models/User";
 
 export class UsersService {
 
-  private users: User[] = [
+  public users: User[] = [
     {
-      id:1,
+      id: 1,
       name: "Justas",
       surname: "Vitkauskas",
       dateOfBirth: new Date("2000-04-01"),
@@ -15,7 +15,7 @@ export class UsersService {
       isOnline: true
     },
     {
-      id:2,
+      id: 2,
       name: "Vardenis",
       surname: "Pavardenis",
       dateOfBirth: new Date("1990-05-21"),
@@ -26,7 +26,7 @@ export class UsersService {
       isOnline: false
     },
     {
-      id:3,
+      id: 3,
       name: "Vardenė",
       surname: "Pavardenė",
       dateOfBirth: new Date("2001-07-08"),
@@ -39,14 +39,14 @@ export class UsersService {
   ]
 
   updateUser(updatedUser: User, id: number) {
-    this.users = this.users.map(user => user.id == id ? updatedUser : user )
+    this.users = this.users.map(user => user.id === id ? updatedUser : user)
   }
 
   getUsers(): User[] {
-   return this.users;
+    return this.users;
   }
 
   getUserById(id: number): User | undefined {
-    return this.users.find((user) => user.id == id)
+    return this.users.find((user) => user.id === id)
   }
 }
