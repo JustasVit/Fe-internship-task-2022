@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --no-watch --no-progress --browsers=ChromeHeadlessCI",
+    "lint": "ng lint",
     "i18n_lt": "ng extract-i18n --output-path src/locale --out-file messages.lt.xlf && ng serve"
   },
   "private": true,
