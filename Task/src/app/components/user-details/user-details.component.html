@@ -1,26 +1,28 @@
 <div class="content shadow">
   <div class="user-container">
-    <img class="userPhoto shadow" src="assets/images/user.png" />
-    <button *ngIf="user?.id === loggedInUserId" i18n class="btn btn-warning details" routerLink="/details/{{user?.id}}/edit">Edit</button>
+    <img class="userPhoto shadow" src="assets/images/user.png"/>
+    <button *ngIf="user?.id === loggedInUserId" class="btn btn-warning details" i18n="@@{userDetails.button.edit}"
+            routerLink="/details/{{user?.id}}/edit">Edit
+    </button>
   </div>
   <div class="user-details-container">
-    <h5 i18n>User details</h5>
+    <h5 i18n="@@{userDetails.title.userDetails}">User details</h5>
     <hr>
     <ul>
-      <li i18n>Name: {{user?.name}}</li>
-      <li i18n>Surname: {{user?.surname}}</li>
-      <li i18n>Gender: {{user?.gender}}</li>
-      <li i18n>Date of birth: {{user?.dateOfBirth | date}}</li>
-      <li i18n>Country: {{user?.country}}</li>
-      <li i18n>City: {{user?.city}}</li>
-      <li i18n>Hobbies: {{user?.hobbies}}</li>
+      <li i18n="@@{userDetails.name}">Name: {{user?.name}}</li>
+      <li i18n="@@{userDetails.surname}">Surname: {{user?.surname}}</li>
+      <li i18n="@@{userDetails.gender}">Gender: {{user?.gender}}</li>
+      <li i18n="@@{userDetails.dateOfBirth}">Date of birth: {{user?.dateOfBirth | date}}</li>
+      <li i18n="@@{userDetails.country}">Country: {{user?.country}}</li>
+      <li i18n="@@{userDetails.city}">City: {{user?.city}}</li>
+      <li i18n="@@{userDetails.hobbies}">Hobbies: {{user?.hobbies}}</li>
     </ul>
-    <h5 i18n>Gallery</h5>
+    <h5 i18n="@@{userDetails.title.gallery}">Gallery</h5>
     <hr>
     <div class="photo-grid-container">
-      <img src="assets/images/image.jpg" class="photo shadow">
-      <img src="assets/images/image.jpg" class="photo shadow">
-      <img src="assets/images/image.jpg" class="photo shadow">
+      <img class="photo shadow" src="assets/images/image.jpg">
+      <img class="photo shadow" src="assets/images/image.jpg">
+      <img class="photo shadow" src="assets/images/image.jpg">
     </div>
   </div>
 </div>
