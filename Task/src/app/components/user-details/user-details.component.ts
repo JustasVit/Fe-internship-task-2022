@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../models/User";
 import {UsersService} from "../../services/users.service";
-import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {UserRepository} from "../../repositories/user.repository";
@@ -15,7 +14,6 @@ export class UserDetailsComponent implements OnInit {
 
   loggedInUser: User | undefined;
   user: User | undefined;
-  private routeSub: Subscription;
 
   constructor(private usersService: UsersService,
               private authService: AuthService,

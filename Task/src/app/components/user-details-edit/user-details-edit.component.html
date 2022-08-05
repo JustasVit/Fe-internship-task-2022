@@ -1,5 +1,5 @@
 <div class="content shadow">
-  <form [formGroup]="form">
+  <form [formGroup]="form" class="edit-form">
     <label for="name">Name:</label>
     <input class="form-control" formControlName="name" id="name" type="text">
     <ng-container *ngIf="form.get('name')?.errors | onlyOneError:['required','pattern','maxlength'] as error">
@@ -77,8 +77,8 @@
           </div>
           <div class="modal-body">
             <div class="buttons">
-              <button (click)="submit()" [disabled]="!form.valid" class="btn btn-success">Save</button>
-              <button (click)="cancel()" class="btn btn-warning">Cancel</button>
+              <button (click)="submit()" [disabled]="!form.valid" class="save-button btn btn-success">Save</button>
+              <button (click)="cancel()" class="cancel-button btn btn-warning">Cancel</button>
             </div>
           </div>
         </div>
