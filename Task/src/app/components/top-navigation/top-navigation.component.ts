@@ -3,6 +3,7 @@ import {faHouse, faStore, faTv, faUser, faUsersLine} from "@fortawesome/free-sol
 import {User} from "../../models/User";
 import {UserRepository} from "../../repositories/user.repository";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-top-navigation',
@@ -19,6 +20,7 @@ export class TopNavigationComponent implements OnInit {
   loggedInUser: User;
 
   constructor(private userRepository: UserRepository,
+              private authService: AuthService,
               private router: Router) {
   }
 
@@ -28,5 +30,9 @@ export class TopNavigationComponent implements OnInit {
         this.router.navigate(['/error']) :
         this.loggedInUser = user;
     })
+  }
+
+  logOut() {
+    this.authService.logout();
   }
 }

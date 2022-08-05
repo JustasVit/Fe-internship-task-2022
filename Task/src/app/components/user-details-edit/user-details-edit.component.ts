@@ -63,7 +63,9 @@ export class UserDetailsEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.userRepository.user$.subscribe((user) => {
-      user === undefined ? this.router.navigate(['/error']) : this.loggedInUser = user;
+      user === undefined ?
+        this.router.navigate(['/error']) :
+        this.loggedInUser = user;
     })
     this.countries = this.countriesService.getCountries();
     this.cities = this.countriesService.getCities(this.loggedInUser.country);
