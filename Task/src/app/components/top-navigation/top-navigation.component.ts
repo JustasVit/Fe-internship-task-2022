@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {faHouse, faStore, faTv, faUser, faUsersLine} from "@fortawesome/free-solid-svg-icons";
+import {User} from "../../models/User";
+import {UserRepository} from "../../repositories/user.repository";
+import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 
 @Component({
@@ -14,12 +17,22 @@ export class TopNavigationComponent implements OnInit {
   faStore = faStore;
   faUsersLine = faUsersLine;
   faUser = faUser;
-  loggedInUserId: number | undefined;
+  loggedInUser: User;
 
-  constructor(private authService: AuthService) {
+  constructor(private userRepository: UserRepository,
+              private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit() {
-    this.loggedInUserId = this.authService.getLoggedInUserId();
+    this.userRepository.user$.subscribe((user) => {
+      user === undefined ?
+        this.router.navigate(['/error']) :
+        this.loggedInUser = user;
+    })
+  }
+
+  logOut() {
+    this.authService.logout();
   }
 }

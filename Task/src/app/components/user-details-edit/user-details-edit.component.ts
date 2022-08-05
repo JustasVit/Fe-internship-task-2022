@@ -8,6 +8,7 @@ import {City} from "../../models/City";
 import {createDateValidator} from "../../validators/date.validator";
 import {AuthService} from "../../services/auth.service";
 import {UsersService} from "../../services/users.service";
+import {UserRepository} from "../../repositories/user.repository";
 
 @Component({
   selector: 'app-user-details-edit',
@@ -26,28 +27,46 @@ export class UserDetailsEditComponent implements OnInit {
               private authService: AuthService,
               private usersService: UsersService,
               private countriesService: CountriesService,
-              private router: Router) {
+              private router: Router,
+              private userRepository: UserRepository) {
 
     this.form = this.formBuilder.group({
       name: [null, {
-        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")], updateOn: 'blur'
-      }], surname: [null, {
-        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")], updateOn: 'blur'
-      }], gender: [null, {
-        validators: [Validators.required], updateOn: 'blur'
-      }], dateOfBirth: [null, {
-        validators: [Validators.required, createDateValidator()], updateOn: 'blur'
-      }], country: [null, {
-        validators: [Validators.required], updateOn: 'blur'
-      }], city: [null, {
-        validators: [Validators.required], updateOn: 'blur'
-      }], hobbies: [null, {updateOn: 'blur'}]
+        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")],
+        updateOn: 'blur'
+      }],
+      surname: [null, {
+        validators: [Validators.required, Validators.maxLength(20), Validators.pattern("[A-Z][a-z]+")],
+        updateOn: 'blur'
+      }],
+      gender: [null, {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }],
+      dateOfBirth: [null, {
+        validators: [Validators.required, createDateValidator()],
+        updateOn: 'blur'
+      }],
+      country: [null, {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }],
+      city: [null, {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }],
+      hobbies: [null, {
+        updateOn: 'blur'
+      }]
     })
   }
 
   ngOnInit(): void {
-    const user = this.authService.getLoggedInUser();
-    user === undefined ? this.router.navigate(['/error']) : this.loggedInUser = user;
+    this.userRepository.user$.subscribe((user) => {
+      user === undefined ?
+        this.router.navigate(['/error']) :
+        this.loggedInUser = user;
+    })
     this.countries = this.countriesService.getCountries();
     this.cities = this.countriesService.getCities(this.loggedInUser.country);
 
@@ -81,6 +100,7 @@ export class UserDetailsEditComponent implements OnInit {
 
   submit() {
     this.usersService.updateUser(this.loggedInUser, this.loggedInUser.id);
+    this.userRepository.setUser(this.loggedInUser);
     this.router.navigate(['/']);
   }
 

@@ -6,20 +6,18 @@ import {UserRepository} from "../repositories/user.repository";
 @Injectable({
   providedIn: 'root'
 })
-export class UserDetailsEditingGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
 
   constructor(private router: Router,
               private userRepository: UserRepository) {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const routeId = Number(next.params['id']);
-
     this.userRepository.user$.subscribe((user) => {
-      if (routeId !== user?.id) {
-        this.router.navigate(['/error']);
+      if (user === undefined) {
+        this.router.navigate(['/login']);
       }
-    })
+    });
     return true;
   }
 }

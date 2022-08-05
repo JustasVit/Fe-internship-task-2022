@@ -11,7 +11,9 @@ const user: User = {
   country: "Lithuania",
   city: "Vilnius",
   hobbies: "-",
-  isOnline: true
+  isOnline: true,
+  email: "random1@email.com",
+  password: "randomPassword"
 }
 
 it('should create', async () => {

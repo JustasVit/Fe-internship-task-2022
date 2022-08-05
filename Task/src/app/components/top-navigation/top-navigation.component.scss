@@ -8,52 +8,59 @@
   cursor: pointer;
 }
 
-.navigation-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-  background-color: $lightBlue;
-}
-
-.navigation-left {
-  margin: 0;
-  width: 20%;
-  display: flex;
-  align-items: center;
-
-  .searchField {
-    margin-left: 5%;
+.navigation {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: $lightBlue;
   }
-}
 
-.navigation-center {
-  margin-top: 10px;
+  &-left {
+    margin: 0;
+    width: 20%;
+    display: flex;
+    align-items: center;
 
-  li {
-    display: inline-block;
-    padding: 0px 20px;
+    .searchField {
+      margin-left: 5%;
+    }
+  }
 
-    .top-navigation-icon {
-      color: white;
-      font-size: 24px;
-      transition: all 0.3s ease 0s;
+  &-center {
+    margin-top: 10px;
 
-      &:hover {
-        color: $grey;
+    li {
+      display: inline-block;
+      padding: 0px 20px;
+
+      .top-navigation-icon {
+        color: white;
+        font-size: 24px;
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+          color: $grey;
+        }
       }
     }
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
   }
 }
 
 .userIcon {
   color: $darkBlue;
   font-size: 36px;
-  margin-right: 1%;
+  margin: 0 10px 0 10px;
 }
 
 @media screen and (min-width: 200px) and (max-width: 1024px) {
-  .searchField {
+  .searchField, .logout {
     display: none;
   }
 }

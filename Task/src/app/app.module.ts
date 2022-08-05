@@ -19,6 +19,8 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {UserDetailsGuard} from "./guards/user-details.guard";
 import {AuthService} from "./services/auth.service";
 import {ErrorComponent} from './components/error/error.component';
+import {LoginComponent} from "./components/login/login.component";
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import {ErrorComponent} from './components/error/error.component';
     UserComponent,
     UsersListComponent,
     ErrorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,9 @@ export class UsersService {
       country: "Lithuania",
       city: "Vilnius",
       hobbies: "-",
-      isOnline: true
+      isOnline: true,
+      email: "random1@email.com",
+      password: "randomPassword"
     },
     {
       id: 2,
@@ -23,7 +25,9 @@ export class UsersService {
       country: "Lithuania",
       city: "Vilnius",
       hobbies: "-",
-      isOnline: false
+      isOnline: false,
+      email: "random2@email.com",
+      password: "randomPassword"
     },
     {
       id: 3,
@@ -34,7 +38,9 @@ export class UsersService {
       country: "Lithuania",
       city: "Vilnius",
       hobbies: "-",
-      isOnline: true
+      isOnline: true,
+      email: "random3@email.com",
+      password: "randomPassword"
     }
   ]
 
@@ -48,5 +54,9 @@ export class UsersService {
 
   getUserById(id: number): User | undefined {
     return this.users.find((user) => user.id === id)
+  }
+
+  getUserByEmail(email: string): User | undefined {
+    return this.users.find((user) => user.email === email)
   }
 }

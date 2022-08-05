@@ -8,4 +8,6 @@ export interface User {
   city: string;
   hobbies: string;
   isOnline: boolean;
+  email: string;
+  password: string;
 }

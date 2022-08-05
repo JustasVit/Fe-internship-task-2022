@@ -25,7 +25,10 @@
       </a>
     </li>
   </ul>
-  <a routerLink="/details/{{loggedInUserId}}">
-    <fa-icon [icon]="faUser" class="userIcon"></fa-icon>
-  </a>
+  <div *ngIf="loggedInUser !== undefined" class="navigation-right">
+    <button (click)="logOut()" class="logout btn btn-danger" type="button">Log out</button>
+    <a routerLink="/details/{{loggedInUser.id}}">
+      <fa-icon [icon]="faUser" class="userIcon"></fa-icon>
+    </a>
+  </div>
 </header>
